@@ -1,0 +1,142 @@
+
+
+{% block content_area %}
+
+    {# Python Code for this page #}
+
+    <div class="right_col" role="main">
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <h2>{{ page_title }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="x_panel">
+
+            <form method="post" enctype="multipart/form-data" novalidate>
+
+                <span class="error_red"> {{ form.non_field_errors }} </span>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.username.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            <input type="text"
+                                   name="{{ form.username.name }}"
+                                   id="{{ form.username.id_for_label }}"
+                                   {% if form.username.value != None %} value="{{ form.username.value|stringformat:'s' }}" {% endif %}
+                                   class="form-control"
+                                   maxlength="{{ form.username.field.max_length }}"
+                                   required
+                                   placeholder="Eg: Athena"
+                            />
+                        </div>
+                        <span class="error_red"> {{ form.username.errors }} </span>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.email.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            <input type="text"
+                                   name="{{ form.email.name }}"
+                                   id="{{ form.email.id_for_label }}"
+                                   {% if form.email.value != None %} value="{{ form.email.value|stringformat:'s' }}" {% endif %}
+                                   class="form-control"
+                                   maxlength="{{ form.email.field.max_length }}"
+                                   required
+                                   placeholder="Eg: Athena"
+                            />
+                        </div>
+                        <span class="error_red"> {{ form.email.errors }} </span>
+                    </div>
+
+                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.first_name.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            <input type="text"
+                                   name="{{ form.first_name.name }}"
+                                   id="{{ form.first_name.id_for_label }}"
+                                   {% if form.first_name.value != None %} value="{{ form.first_name.value|stringformat:'s' }}" {% endif %}
+                                   class="form-control"
+                                   maxlength="{{ form.first_name.field.max_length }}"
+                                   required
+                                   placeholder="Eg: Athena"
+                            />
+                        </div>
+                        <span class="error_red"> {{ form.first_name.errors }} </span>
+                    </div>
+
+                   <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.last_name.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            <input type="text"
+                                   name="{{ form.last_name.name }}"
+                                   id="{{ form.last_name.id_for_label }}"
+                                   {% if form.last_name.value != None %} value="{{ form.last_name.value|stringformat:'s' }}" {% endif %}
+                                   class="form-control"
+                                   maxlength="{{ form.last_name.field.max_length }}"
+                                   required
+                                   placeholder="Eg: Athena"
+                            />
+                        </div>
+                        <span class="error_red"> {{ form.last_name.errors }} </span>
+                    </div>
+
+                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.phone.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            <input type="text"
+                                   name="{{ form.phone.name }}"
+                                   id="{{ form.phone.id_for_label }}"
+                                   {% if form.phone.value != None %} value="{{ form.phone.value|stringformat:'s' }}" {% endif %}
+                                   class="form-control"
+                                   maxlength="{{ form.phone.field.max_length }}"
+                                   required
+                                   placeholder="Eg: Athena"
+                            />
+                        </div>
+                        <span class="error_red"> {{ form.phone.errors }} </span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div style = "max-width:470px;",class ="form-group control-required">
+                            <label>{{ form.file.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                                <input type = "file" style = "margin-left:20%;"
+                                       id="{{ form.file.id_for_label }}"
+                                       {% if form.file.value != None %} value="{{ form.file.value|stringformat:'s' }}" {% endif %}
+                                       class="form-control"
+                                       maxlength="{{ form.phone.field.max_length }}"
+                                       required
+                                       placeholder = "file" name = "{{form.file.name}}" />
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <a onclick="history.go(-1);" class="btn btn-success pull-right">Cancel</a>
+                        <input type="submit" name="submit" value="Submit" class="btn btn-primary pull-right"/>
+                    </div>
+                </div>
+
+                {% csrf_token %}
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
