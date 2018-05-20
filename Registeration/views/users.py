@@ -4,6 +4,7 @@ from Registeration.forms import UserForm
 from django.contrib.auth.models import User
 from Registeration.models import Users
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
 
 def addUser(request):
     page_title = "Add User"
