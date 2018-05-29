@@ -10,7 +10,7 @@ def addUser(request):
     page_title = "Add User"
     form_class = UserForm
     if request.method == 'POST':
-        form = form_class(request.POST,request.FILES)
+        form = form_class(request.POST, request.FILES)
         if form.is_valid():
             obj = User()
             obj.username = form.cleaned_data['username']
@@ -18,6 +18,9 @@ def addUser(request):
             obj.last_name = form.cleaned_data['last_name']
             obj.email = form.cleaned_data['email']
             obj.phone = form.cleaned_data['phone']
+            obj.gender = form.cleaned_data['gender']
+            obj.password1 = form.cleaned_data['password1']
+            obj.password2 = form.cleaned_data['password2']
             obj.save()
             messages.success(request, 'User details saved successfully..!')
             return HttpResponse('Added')

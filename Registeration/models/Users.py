@@ -26,11 +26,15 @@ class Users(models.Model, BaseDatatableView):
     last_name = models.CharField(max_length=128, null=True)
     email = models.CharField(max_length=128, null=True)
     phone = models.CharField(max_length=15, null=True)
+    gender = models.CharField(max_length=8)
     file = models.FileField(upload_to='documents/%Y/%m/%d')
+    password = models.CharField(max_length=128, null=False)
+    confirm_password = models.CharField(max_length=128, null=False)
+
     page_title = 'Manage Users'
-    listable = {'Username', 'First Name','Last Name','Email','Phone','File'}
-    columns = ['id', 'username','first_name','last_name','email','phone','file']
-    order_columns = ['id', 'username','first_name','last_name','email','phone','file']
+    listable = {'Username', 'First Name', 'Last Name', 'Email', 'Phone', 'File', 'Gender'}
+    columns = ['id', 'username', 'first_name', 'last_name', 'email', 'phone', 'file', 'gender']
+    order_columns = ['id', 'username', 'first_name', 'last_name', 'email', 'phone', 'file', 'gender']
     max_display_length = 500
     # class_view_name = 'GetAjaxViewUser'
 
@@ -47,6 +51,3 @@ class Users(models.Model, BaseDatatableView):
                     "trash": "Trash", "restore": "Restore", "forcedelete": "Force Delete"}
 
     routes = {"add_route": "adduser", "edit_route": "edituser", "view_route": "viewuser"}
-
-
-

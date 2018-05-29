@@ -105,61 +105,50 @@
                         </div>
                         <span class="error_red"> {{ form.phone.errors }} </span>
                     </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.password1.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            {{form.password1}}
+                            <span class="error_red"> {{ form.password1.errors }} </span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-group control-required">
+                            <label>{{ form.password2.label_tag }}</label>
+                            <span class="error_red"> * </span>
+                            {{form.password2}}
+                            <span class="error_red"> {{ form.password2.errors }} </span>
+                        </div>
+                    </div>
+
+
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                         <div style = "max-width:470px;",class ="form-group control-required">
                             <label>{{ form.file.label_tag }}</label>
                             <span class="error_red"> * </span>
                                 <input type = "file" style = "margin-left:20%;"
                                        id="{{ form.file.id_for_label }}"
-                                       {% if form.file.value != None %} value="{{ form.file.value|stringformat:'s' }}" {% endif %}
+                                       {% if form.file.value != None %} value="{{ form.file.value|stringformat:'s' }}"
+                                       {% endif %}
                                        class="form-control"
                                        placeholder = "file" name = "{{form.file.name}}" />
                         </div>
                     </div>
 
                      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                         <div style = "max-width:470px;",class ="form-group control-required">
-                            <label>{{ form.Gender.label_tag }}</label>
-                             <!--<span class="error_red"> * </span>-->
-                             <!--<fieldset>-->
-                                 <!--<legend> Gender</legend>-->
-                                 <span class="error_red"> * </span>
-                                 <input id = "Male" type ="checkbox">
-                                 <label for = "Male">Male</label>
-                                 <input id = "Female" type ="checkbox">
-                                 <label for = "Female">Female</label>
-                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                        <fieldset>
-                            <legend> Caste </legend>
-                             <span class="error_red"> * </span>
-                             <input id = "Christian" type ="radio" name="caste">
-                              <label for = "Christian">Christian</label>
-                             <input id = "Hindu" type ="radio" name="caste">
-                             <label for = "Hindu">Hindu</label>
-                             <input id = "Muslim" type ="radio" name="caste">
-                             <label for = "Muslim">Muslim</label>
-                        </fieldset>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                        <fieldset>
-                            <legend> Address </legend>
-                            <label for = "street-address">street-address</label>
-                             <input id = "street-address">
-                              <label for ="city">city</label>
-                             <input id = "city">
-                             <label for ="country">country</label>
-                             <input id = "country">
-                            <label for ="postal-code">pin</label>
-                             <input id = "postal-code">
-                        </fieldset>
-                    </div>
-
+                            <div class="form-group control-required">
+                                <label>{{ form.gender.label_tag }}</label>
+                                <span class="error_red"> * </span>
+                                <input name='{{ form.gender.name }}' type="radio" value="male"/>Male
+                                <input name='{{ form.gender.name }}' type="radio" value="female"/>Female
+                                <span class="error_red"> {{ form.gender.errors }} </span>
+                            </div>
+                        </div>
                 </div>
 
-
-                <hr>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     </div>
